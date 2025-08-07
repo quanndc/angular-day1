@@ -36,4 +36,12 @@ export class AppComponent {
         discount: 0
       },
     ]
+
+    gioHang:any = [];
+
+    addToCart(event: any) {
+      this.gioHang.push(event);
+      console.log('Sản phẩm được click tại component cha:', event);
+      console.log('Giỏ hàng hiện tại:', this.gioHang);
+    }
 }

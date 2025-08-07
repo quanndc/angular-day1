@@ -1,7 +1,9 @@
-<app-nav-bar></app-nav-bar>
+<header>
+  <app-nav-bar [soLuongSanPham]="gioHang.length"></app-nav-bar>
+</header>
 <!-- Directive -->
 <div id="container">
   @for (item of products; track item.id) {
-    <app-product-card [item]="item"></app-product-card>
+    <app-product-card [item]="item" (itemEvent)="addToCart($event)"></app-product-card>
   }
 </div>
