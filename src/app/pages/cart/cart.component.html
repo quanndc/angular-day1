@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<h1>Gio hang cua toi</h1>
+
+@if(cartService.gioHang.length == 0 ){
+<h2>Gio hang cua ban dang rong</h2>
+<button>Quay lai mua sam</button>
+} @else {
+<section id="cart-container">
+    @for (item of cartService.gioHang; track $index) {
+        <div id="cart-items">
+        <div class="item-name">{{item.name}}</div>
+        <div class="item-price">{{item.price}}</div>
+        <div class="item-quantity">{{item.quantity}}</div>
+        <div class="item-total">{{item.price * item.quantity}}</div>
+        <button (click)="cartService.removeFromCart(item.id)">remove</button>
+    </div>
+    }
+    <div class="total">
+        <span>Tong tien:</span>
+        <span>{{cartService.totalPrice}}</span>
+    </div>
+</section>
+}

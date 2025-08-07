@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart/cart.service';
 @Component({
   selector: 'app-product-card',
   imports: [CommonModule],
@@ -7,12 +8,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
+
+  constructor(private cartService: CartService) { }
+
   @Input() item:any
 
-  @Output() itemEvent = new EventEmitter();
-
-  addToCart(itemName: string){
-    console.log('Sản phẩm được click tại component con:', itemName);
-    this.itemEvent.emit(itemName)
+  addToCart(item: any, quantity: number = 1) {
+    // spread syntax
+    const product = {
+      ...item,
+      quantity: quantity
+    }
+    this.cartService.addToCart(product)
   }
 }

@@ -1,1 +1,5 @@
-<p>home works!</p>
+<div id="container">
+    @for (item of products; track $index) {
+    <app-product-card [item]="item"></app-product-card>
+}
+</div>

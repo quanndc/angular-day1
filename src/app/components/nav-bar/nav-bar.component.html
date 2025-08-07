@@ -8,7 +8,6 @@
 </ul>
 
 <div id="cart-icon">
-  <!-- <mat-icon routerLink="/cart" [matBadge]="soLuongSanPham" >shopping_cart</mat-icon> -->
-  <mat-icon [matBadge]="soLuongSanPham" >shopping_cart</mat-icon>
+  <mat-icon routerLink="/cart" [matBadge]="cartService.gioHang.length">shopping_cart</mat-icon>
 </div>
 </nav>

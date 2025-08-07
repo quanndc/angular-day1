@@ -3,6 +3,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RouterLink} from "@angular/router"
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
 
-  constructor(private router: Router){
+  constructor(private router: Router, protected cartService: CartService){
 }
 
   routes = [
@@ -32,11 +33,4 @@ export class NavBarComponent {
       label: "About"
     }
   ]
-
-  @Input() soLuongSanPham = 0;
-
-
-  encodeURI(path: string) {
-    return this.router.serializeUrl(this.router.createUrlTree([path]));
-  }
 }
